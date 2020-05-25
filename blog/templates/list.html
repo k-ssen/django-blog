@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <div style="width: auto;
+            background-color: lightpink;"></div>
+</head>
+<body>
+    <div1 style="width: auto;
+        background-color: white;
+        color: lightpink;">
+        <h1 style="margin-left: 600px;" >kssen Blog</h1>
+        <a href="{%url 'new' %}">새글 작성하기</a> 
+        </div1>
+    <div style="width: auto;
+    color: white;
+    background-color: lightpink"> 
+
+
+
+
+
+{% for blog in blogs %}
+    <hr>
+    <a href="{%url 'detail' blog.id%}">
+        {{blog.title}}
+        <br>
+        {{blog.pub_date}}
+        <br>
+        {{blog.summary}}
+        <br>
+        {% if blog.image %}
+        <img src="{{blog.image.url}}">
+        <br>
+        {% endif %}
+
+{% endfor %}
+
+
+    </div>
+
+</body>
+</html>
+
+
