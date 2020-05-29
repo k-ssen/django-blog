@@ -5,34 +5,44 @@
             background-color: lightpink;"></div>
 </head>
 <body>
+    <div style="text-align: center;"><img src="https://usercontents-c.styleshare.io/images/31618712/640x640" width="2000", height="350" ></div>
     <div1 style="width: auto;
         background-color: white;
         color: lightpink;">
-        <h1 style="margin-left: 600px;" >kssen Blog</h1>
+        <h1 style="text-align: center;"> ♡ssen Blog♡ </h1>
         <a href="{%url 'new' %}">새글 작성하기</a> 
         </div1>
     <div style="width: auto;
     color: white;
     background-color: lightpink"> 
 
+<div>
+    {% if user.is_authenticated %}
+    <h3>안녕하세요! {{user.username}}님, 환영합니다♡</h3>
+    <a href="{% url 'logout' %}">로그아웃</a>
+    <!-- 로그인 상태에서만 ''를 볼 수 있다 -->
+    {%else %}
+    <a href="{% url 'login' %}">로그인</a>
+    <a href="{% url 'register' %}">회원가입</a>
+    {% endif %}
 
+</div>
 
+<!-- AbstractUser : 가상의 유저를 장고에서 미리 제공해줘서 그냥 사용 -->
 
-
-{% for blog in blogs %}
-    <hr>
+{% for blog in blogs %} 
+<hr>
     <a href="{%url 'detail' blog.id%}">
-        {{blog.title}}
-        <br>
-        {{blog.pub_date}}
-        <br>
-        {{blog.summary}}
+        <h2  style=" text-align: center;">{{blog.title}}</h2>
+        <div  style="text-align: center;">{{blog.summary}}</div>
         <br>
         {% if blog.image %}
-        <img src="{{blog.image.url}}">
         <br>
+        <div style="text-align: center;"><img src="{{blog.image.url}}"></div>
+        <br>
+        <br>
+        <div style="text-align: center;">{{blog.pub_date}}</div>
         {% endif %}
-
 {% endfor %}
 
 

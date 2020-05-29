@@ -1,12 +1,16 @@
+
 {% load static %}
-<h1>새 글 작성하기</h1>
-<img src="{% static '시베리아 횡단열차.png'%}" alt="">
+<div style="width: 700px;
+margin: 0 auto;
+background-color: lightsteelblue;">
+<div style="color: lightskyblue;
+background-color: white; text-align: center;"><h1>새글 작성하기</h1></div>
+<div style="text-align: center;"><img src="{% static 'images.png'%}" alt=""></div>
 <form method='POST' enctype="multipart/form-data">
     {% csrf_token %}
-    <table>
-        {{form.as_table}}
-    </table>
-    
+    <br><table>
+    {{form.as_table}}
+    </table><br><br>
     <input class= "btn btn-dark" type="submit" value="저장">
-
+</div>
 </form>

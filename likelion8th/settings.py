@@ -27,6 +27,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+AUTH_USER_MODEL = "account.CustomUserModel"
 
 # Application definition
 
@@ -37,9 +38,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'wordcount.apps.WordcountConfig',
+    'wordcount',
     'blog',
+    'account',
 ]
+#.apps.WordcountConfig
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
